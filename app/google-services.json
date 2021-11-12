@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "289791490650",
+    "project_id": "iguau-8589e",
+    "storage_bucket": "iguau-8589e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289791490650:android:7e2d94ac04e4c14c5b3663",
+        "android_client_info": {
+          "package_name": "com.example.iguau"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289791490650-jtfrfci0j4di8dsd5qk8rohck2drb6i6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXH-s1HzkqOMlZsK6zu0tmZgCmLk1jM1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289791490650-jtfrfci0j4di8dsd5qk8rohck2drb6i6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
