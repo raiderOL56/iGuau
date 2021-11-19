@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp"
+    android:background="@drawable/fondo">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="170dp"
+                android:src="@drawable/logotipo"
+                android:layout_gravity="center"
+                android:layout_marginVertical="20dp"/>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/registrate_"
+                android:textColor="@color/white"
+                android:textSize="36dp"
+                android:layout_gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/selecciona_una_opcion"
+                    android:textColor="@color/white"
+                    android:textSize="14dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/spinner"
+                    android:layout_marginTop="10dp">
+
+                    <Spinner
+                        android:id="@+id/signUp_SpinnerTipoCuenta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/datos_personales"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"/>
+
+                <EditText
+                    android:id="@+id/signUp_eTXTnombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text"
+                    android:layout_marginBottom="10dp"
+                    android:padding="10dp"
+                    android:hint="@string/nombre_s"
+                    android:textColorHint="#80FFFFFF"
+                    android:textColor="@color/white"
+                    android:inputType="textPersonName|textCapWords"
+                    android:textIsSelectable="true"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <EditText
+                        android:id="@+id/signUp_eTXTapellidoP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text"
+                        android:layout_marginRight="2.5dp"
+                        android:padding="10dp"
+                        android:hint="@string/apellido_paterno"
+                        android:textColorHint="#80FFFFFF"
+                        android:textColor="@color/white"
+                        android:inputType="textPersonName|textCapWords"
+                        android:textIsSelectable="true"/>
+
+                    <EditText
+                        android:id="@+id/signUp_eTXTapellidoM"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text"
+                        android:layout_marginLeft="2.5dp"
+                        android:padding="10dp"
+                        android:hint="@string/apellido_materno"
+                        android:textColorHint="#80FFFFFF"
+                        android:textColor="@color/white"
+                        android:inputType="textPersonName|textCapWords"
+                        android:textIsSelectable="true"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <EditText
+                        android:id="@+id/signUp_eTXTedad"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text"
+                        android:layout_marginRight="2.5dp"
+                        android:padding="10dp"
+                        android:hint="@string/edad"
+                        android:textColorHint="#80FFFFFF"
+                        android:textColor="@color/white"
+                        android:inputType="numberSigned"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/spinner"
+                        android:layout_marginLeft="2.5dp">
+
+                        <Spinner
+                            android:id="@+id/signUp_SpinnerSexo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/no_celular"
+                        android:textColor="@color/white"
+                        android:textSize="14dp"/>
+
+                    <EditText
+                        android:id="@+id/signUp_eTXTphone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text"
+                        android:padding="10dp"
+                        android:hint="@string/digita_tu_numero_celular"
+                        android:textColorHint="#80FFFFFF"
+                        android:textColor="@color/white"
+                        android:inputType="numberSigned"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="@string/domicilio"
+                        android:textColor="@color/white"
+                        android:textSize="14dp"/>
+
+                    <EditText
+                        android:id="@+id/signUp_eTXTdomicilio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text"
+                        android:padding="10dp"
+                        android:hint="(Colonia, municipio y estado)"
+                        android:textColorHint="#80FFFFFF"
+                        android:textColor="@color/white"
+                        android:inputType="textCapWords|textAutoComplete"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/signUp_LLdatosProfesionales"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/datos_profesionales"
+                        android:textSize="24dp"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/carrera_profesional"
+                            android:textColor="@color/white"
+                            android:gravity="center_vertical"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:background="@drawable/spinner">
+
+                            <Switch
+                                android:id="@+id/signUp_SWcarrera"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:thumbTint="#3A91B8"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/signUp_eTXTcarrera"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text"
+                        android:layout_marginBottom="10dp"
+                        android:padding="10dp"
+                        android:hint="@string/carrera_profesional"
+                        android:textColorHint="#80FFFFFF"
+                        android:textColor="@color/white"
+                        android:visibility="gone"
+                        android:inputType="textCapWords"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/certificaciones"
+                            android:textColor="@color/white"
+                            android:gravity="center_vertical"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:background="@drawable/spinner">
+
+                            <Switch
+                                android:id="@+id/signUp_SWcertificacion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:thumbTint="#3A91B8"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/signUp_eTXTcertificacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text"
+                        android:layout_marginBottom="10dp"
+                        android:padding="10dp"
+                        android:hint="@string/certificaciones"
+                        android:textColorHint="#80FFFFFF"
+                        android:textColor="@color/white"
+                        android:visibility="gone"
+                        android:inputType="textCapWords"/>
+
+                    <LinearLayout
+                        android:id="@+id/signUp_LLexperiencia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/experiencia_laboral"
+                            android:textColor="@color/white"
+                            android:gravity="center_vertical"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:background="@drawable/spinner">
+
+                            <Switch
+                                android:id="@+id/signUp_SWexperiencia"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:thumbTint="#3A91B8"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/signUp_eTXTexperiencia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text"
+                        android:layout_marginBottom="10dp"
+                        android:padding="10dp"
+                        android:hint="@string/experiencia_laboral_anos"
+                        android:textColorHint="#80FFFFFF"
+                        android:textColor="@color/white"
+                        android:visibility="gone"
+                        android:inputType="numberSigned"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/datos_de_cuenta"
+                        android:textSize="24dp"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"/>
+
+                    <EditText
+                        android:id="@+id/signUp_eTXTemail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text"
+                        android:layout_marginBottom="10dp"
+                        android:padding="10dp"
+                        android:hint="@string/correo_electronico"
+                        android:textColorHint="#80FFFFFF"
+                        android:textColor="@color/white"
+                        android:inputType="textEmailAddress"/>
+
+                    <EditText
+                        android:id="@+id/signUp_eTXTpassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text"
+                        android:layout_marginBottom="10dp"
+                        android:padding="10dp"
+                        android:hint="@string/contrasena"
+                        android:textColorHint="#80FFFFFF"
+                        android:textColor="@color/white"
+                        android:inputType="textPassword"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/signUp_BTNsignUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/registrar"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginHorizontal="25dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/o"
+                            android:textSize="20dp"
+                            android:textColor="@color/white"
+                            android:layout_marginHorizontal="10dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/signUp_BTNlogIn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/iniciar_sesion"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

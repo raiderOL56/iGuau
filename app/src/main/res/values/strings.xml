@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">iGuau</string>
+    <string name="registrate_">¡Regístrate!</string>
+    <string name="selecciona_una_opcion">Selecciona una opción</string>
+    <string name="datos_personales">Datos personales</string>
+    <string name="nombre_s">Nombre(s)</string>
+    <string name="apellido_paterno">Apellido paterno</string>
+    <string name="apellido_materno">Apellido materno</string>
+    <string name="edad">Edad</string>
+    <string name="no_celular">No. celular:</string>
+    <string name="digita_tu_numero_celular">Digita tu número celular</string>
+    <string name="domicilio">Domicilio:</string>
+    <string name="registrar">Registrar</string>
+    <string name="o">Ó</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="datos_profesionales">Datos profesionales</string>
+    <string name="carrera_profesional">Carrera profesional</string>
+    <string name="certificaciones">Certificaciones</string>
+    <string name="experiencia_laboral_anos">Experiencia laboral (años)</string>
+    <string name="datos_de_cuenta">Datos de cuenta</string>
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="experiencia_laboral">Experiencia laboral</string>
+    <string name="selecciona_al_menos_una_opcion">Selecciona al menos una opción</string>
+    <string name="verifica_tu_contrasena">Verifica tu contraseña</string>
+    <string name="vuelve_a_escribir_tu_contrasena_aqui">Vuelve a escribir tu contraseña aquí</string>
+    <string name="verificar">VERIFICAR</string>
+    <string name="cancelar">CANCELAR</string>
 </resources>
