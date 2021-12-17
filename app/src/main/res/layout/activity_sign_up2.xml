@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".SignUp2"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp"
+                android:gravity="center">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/signUp2_IVphoto"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:src="@drawable/user"/>
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/signUp2_IVphoto"-->
+<!--                    android:background="@drawable/imagen_redonda"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:src="@drawable/user"/>-->
+
+                <ImageView
+                    android:id="@+id/signUp2_IVaddPhoto"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/plus"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="-30dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/selecciona_una_opcion"
+                    android:textSize="14dp"
+                    android:gravity="center_vertical"/>
+
+                    <Spinner
+                        android:id="@+id/signUp2_SpinnerTipoCuenta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/datos_personales"
+                    android:textSize="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signUp2_TXTnombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="@string/nombre_s"
+                    app:boxCornerRadiusTopStart="15dp"
+                    app:boxCornerRadiusTopEnd="15dp"
+                    app:endIconMode="clear_text"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/signUp2_eTXTnombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords"
+                        android:textIsSelectable="true"/>
+                </com.google.android.material.textfield.TextInputLayout>
+<!--                <EditText-->
+<!--                    android:id="@+id/signUp2_eTXTnombre"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/edit_text"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:hint="@string/nombre_s"-->
+<!--                    android:textColorHint="#80FFFFFF"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:inputType="textPersonName|textCapWords"-->
+<!--                    android:textIsSelectable="true"/>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/signUp2_TXTapellidoP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="2.5dp"
+                        android:hint="@string/apellido_paterno"
+                        app:boxCornerRadiusTopStart="15dp"
+                        app:boxCornerRadiusTopEnd="15dp"
+                        app:endIconMode="clear_text"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/signUp2_eTXTapellidoP"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName|textCapWords"
+                            android:textIsSelectable="true"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/signUp2_TXTapellidoM"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2.5dp"
+                        android:hint="@string/apellido_materno"
+                        app:boxCornerRadiusTopStart="15dp"
+                        app:boxCornerRadiusTopEnd="15dp"
+                        app:endIconMode="clear_text"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/signUp2_eTXTapellidoM"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName|textCapWords"
+                            android:textIsSelectable="true"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+<!--                    <EditText-->
+<!--                        android:id="@+id/signUp2_eTXTapellidoP"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:background="@drawable/edit_text"-->
+<!--                        android:layout_marginRight="2.5dp"-->
+<!--                        android:padding="10dp"-->
+<!--                        android:hint="@string/apellido_paterno"-->
+<!--                        android:textColorHint="#80FFFFFF"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:inputType="textPersonName|textCapWords"-->
+<!--                        android:textIsSelectable="true"/>-->
+
+<!--                    <EditText-->
+<!--                        android:id="@+id/signUp2_eTXTapellidoM"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:background="@drawable/edit_text"-->
+<!--                        android:layout_marginLeft="2.5dp"-->
+<!--                        android:padding="10dp"-->
+<!--                        android:hint="@string/apellido_materno"-->
+<!--                        android:textColorHint="#80FFFFFF"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:inputType="textPersonName|textCapWords"-->
+<!--                        android:textIsSelectable="true"/>-->
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/signUp2_TXTedad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="2.5dp"
+                        android:hint="@string/edad"
+                        app:boxCornerRadiusTopStart="15dp"
+                        app:boxCornerRadiusTopEnd="15dp"
+                        app:endIconMode="clear_text"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/signUp2_eTXTedad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberSigned"
+                            android:textIsSelectable="true"
+                            android:maxLength="2"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+<!--                    <EditText-->
+<!--                        android:id="@+id/signUp2_eTXTedad"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:background="@drawable/edit_text"-->
+<!--                        android:layout_marginRight="2.5dp"-->
+<!--                        android:padding="10dp"-->
+<!--                        android:hint="@string/edad"-->
+<!--                        android:textColorHint="#80FFFFFF"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:inputType="numberSigned"/>-->
+
+                    <Spinner
+                        android:id="@+id/signUp2_SpinnerSexo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2.5dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/no_celular"
+                        android:textSize="14dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/signUp2_TXTphone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/numero_celular"
+                        app:boxCornerRadiusTopStart="15dp"
+                        app:boxCornerRadiusTopEnd="15dp"
+                        app:endIconMode="clear_text"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="10"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/signUp2_eTXTphone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberSigned"
+                            android:textIsSelectable="true"
+                            android:maxLength="10"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+<!--                    <EditText-->
+<!--                        android:id="@+id/signUp2_eTXTphone"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:background="@drawable/edit_text"-->
+<!--                        android:padding="10dp"-->
+<!--                        android:hint="@string/digita_tu_numero_celular"-->
+<!--                        android:textColorHint="#80FFFFFF"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:inputType="numberSigned"/>-->
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="@string/domicilio"
+                        android:textSize="14dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/signUp2_TXTdomicilio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/colonia_municipio_y_estado"
+                        app:boxCornerRadiusTopStart="15dp"
+                        app:boxCornerRadiusTopEnd="15dp"
+                        app:endIconMode="clear_text"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/signUp2_eTXTdomicilio"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textAutoComplete|textCapWords"
+                            android:textIsSelectable="true"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+<!--                    <EditText-->
+<!--                        android:id="@+id/signUp2_eTXTdomicilio"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:background="@drawable/edit_text"-->
+<!--                        android:padding="10dp"-->
+<!--                        android:hint="(Colonia, municipio y estado)"-->
+<!--                        android:textColorHint="#80FFFFFF"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:inputType="textCapWords|textAutoComplete"/>-->
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/signUp2_LLdatosProfesionales"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/datos_profesionales"
+                    android:textSize="24dp"
+                    android:layout_gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/carrera_profesional"
+                        android:gravity="center_vertical"/>
+
+                    <Switch
+                        android:id="@+id/signUp2_SWcarrera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:thumbTint="#3A91B8"
+                        android:layout_marginHorizontal="10dp"/>
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signUp2_TXTcarrera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="@string/carrera_profesional"
+                    app:boxCornerRadiusTopStart="15dp"
+                    app:boxCornerRadiusTopEnd="15dp"
+                    app:endIconMode="clear_text"
+                    android:visibility="gone"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/signUp2_eTXTcarrera"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:textIsSelectable="true"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+<!--                <EditText-->
+<!--                    android:id="@+id/signUp2_eTXTcarrera"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/edit_text"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:hint="@string/carrera_profesional"-->
+<!--                    android:textColorHint="#80FFFFFF"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:visibility="gone"-->
+<!--                    android:inputType="textCapWords"/>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/certificaciones"
+                        android:gravity="center_vertical"/>
+
+                    <Switch
+                        android:id="@+id/signUp2_SWcertificacion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:thumbTint="#3A91B8"
+                        android:layout_marginHorizontal="10dp"/>
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signUp2_TXTcertificacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="@string/certificaciones"
+                    app:boxCornerRadiusTopStart="15dp"
+                    app:boxCornerRadiusTopEnd="15dp"
+                    app:endIconMode="clear_text"
+                    android:visibility="gone"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/signUp2_eTXTcertificacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:textIsSelectable="true"/>
+                </com.google.android.material.textfield.TextInputLayout>
+<!--                <EditText-->
+<!--                    android:id="@+id/signUp2_eTXTcertificacion"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/edit_text"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:hint="@string/certificaciones"-->
+<!--                    android:textColorHint="#80FFFFFF"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:visibility="gone"-->
+<!--                    android:inputType="textCapWords"/>-->
+
+                <LinearLayout
+                    android:id="@+id/signUp2_LLexperiencia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/experiencia_laboral"
+                        android:gravity="center_vertical"/>
+
+                    <Switch
+                        android:id="@+id/signUp2_SWexperiencia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:thumbTint="#3A91B8"
+                        android:layout_marginHorizontal="10dp"/>
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signUp2_TXTexperiencia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="@string/experiencia_laboral_anos"
+                    app:boxCornerRadiusTopStart="15dp"
+                    app:boxCornerRadiusTopEnd="15dp"
+                    app:endIconMode="clear_text"
+                    android:visibility="gone"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/signUp2_eTXTexperiencia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberSigned"
+                        android:textIsSelectable="true"
+                        android:maxLength="2"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+<!--                <EditText-->
+<!--                    android:id="@+id/signUp2_eTXTexperiencia"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/edit_text"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:hint="@string/experiencia_laboral_anos"-->
+<!--                    android:textColorHint="#80FFFFFF"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:visibility="gone"-->
+<!--                    android:inputType="numberSigned"/>-->
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/signUp2_BTNsignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/registrar"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

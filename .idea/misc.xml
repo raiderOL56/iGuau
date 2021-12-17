@@ -6,8 +6,12 @@
         <entry key="..\:/Users/erick/OneDrive/MisProyectos/AndroidStudio/JAVA/iGuau/app/src/main/res/drawable/btn_dialog_password.xml" value="0.3453703703703704" />
         <entry key="..\:/Users/erick/OneDrive/MisProyectos/AndroidStudio/JAVA/iGuau/app/src/main/res/drawable/btn_dialogpassword.xml" value="0.246875" />
         <entry key="..\:/Users/erick/OneDrive/MisProyectos/AndroidStudio/JAVA/iGuau/app/src/main/res/drawable/edit_text.xml" value="0.3453703703703704" />
+        <entry key="..\:/Users/erick/OneDrive/MisProyectos/AndroidStudio/JAVA/iGuau/app/src/main/res/drawable/email_icon.xml" value="0.3453703703703704" />
+        <entry key="..\:/Users/erick/OneDrive/MisProyectos/AndroidStudio/JAVA/iGuau/app/src/main/res/drawable/imagen_redonda.xml" value="0.3453703703703704" />
         <entry key="..\:/Users/erick/OneDrive/MisProyectos/AndroidStudio/JAVA/iGuau/app/src/main/res/drawable/spinner.xml" value="0.3453703703703704" />
-        <entry key="..\:/Users/erick/OneDrive/MisProyectos/AndroidStudio/JAVA/iGuau/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
+        <entry key="..\:/Users/erick/OneDrive/MisProyectos/AndroidStudio/JAVA/iGuau/app/src/main/res/layout/activity_log_in.xml" value="0.25" />
+        <entry key="..\:/Users/erick/OneDrive/MisProyectos/AndroidStudio/JAVA/iGuau/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
+        <entry key="..\:/Users/erick/OneDrive/MisProyectos/AndroidStudio/JAVA/iGuau/app/src/main/res/layout/activity_sign_up2.xml" value="0.33" />
         <entry key="..\:/Users/erick/OneDrive/MisProyectos/AndroidStudio/JAVA/iGuau/app/src/main/res/layout/dialog_password.xml" value="0.33" />
         <entry key="..\:/Users/erick/OneDrive/MisProyectos/AndroidStudio/JAVA/iGuau/app/src/main/res/layout/spinner_custom.xml" value="0.33" />
       </map>

@@ -8,10 +8,9 @@
     <string name="apellido_materno">Apellido materno</string>
     <string name="edad">Edad</string>
     <string name="no_celular">No. celular:</string>
-    <string name="digita_tu_numero_celular">Digita tu número celular</string>
     <string name="domicilio">Domicilio:</string>
     <string name="registrar">Registrar</string>
-    <string name="o">Ó</string>
+    <string name="o">ó</string>
     <string name="iniciar_sesion">Iniciar sesión</string>
     <string name="datos_profesionales">Datos profesionales</string>
     <string name="carrera_profesional">Carrera profesional</string>
@@ -26,4 +25,8 @@
     <string name="vuelve_a_escribir_tu_contrasena_aqui">Vuelve a escribir tu contraseña aquí</string>
     <string name="verificar">VERIFICAR</string>
     <string name="cancelar">CANCELAR</string>
+    <string name="continuar">Continuar</string>
+    <string name="al_menos_6_caracteres">Al menos 6 caracteres</string>
+    <string name="numero_celular">Número celular</string>
+    <string name="colonia_municipio_y_estado">(colonia, municipio y estado)</string>
 </resources>

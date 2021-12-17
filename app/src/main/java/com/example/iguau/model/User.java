@@ -1,13 +1,15 @@
 package com.example.iguau.model;
 
 public class User {
-    String tipoCuenta, nombre, apellidoP, apellidoM, edad, genero, phone, domicilio, carrera, certificacion, experiencia, email;
+    String tipoCuenta, linkPhoto, nombre, apellidoP, apellidoM, edad, genero, phone, domicilio, carrera, certificacion, experiencia, email;
 
     public User() {
     }
 
-    public User(String tipoCuenta, String nombre, String apellidoP, String apellidoM, String edad, String genero, String phone, String domicilio, String email) {
+    // Constructor DueñoDeUnaMascota
+    public User(String tipoCuenta, String linkPhoto, String nombre, String apellidoP, String apellidoM, String edad, String genero, String phone, String domicilio, String email) {
         this.tipoCuenta = tipoCuenta;
+        this.linkPhoto = linkPhoto;
         this.nombre = nombre;
         this.apellidoP = apellidoP;
         this.apellidoM = apellidoM;
@@ -18,8 +20,10 @@ public class User {
         this.email = email;
     }
 
-    public User(String tipoCuenta, String nombre, String apellidoP, String apellidoM, String edad, String genero, String phone, String domicilio, String carrera, String certificacion, String experiencia, String email) {
+    // Constructor entrenador o veterinario
+    public User(String tipoCuenta, String linkPhoto,String nombre, String apellidoP, String apellidoM, String edad, String genero, String phone, String domicilio, String carrera, String certificacion, String experiencia, String email) {
         this.tipoCuenta = tipoCuenta;
+        this.linkPhoto = linkPhoto;
         this.nombre = nombre;
         this.apellidoP = apellidoP;
         this.apellidoM = apellidoM;
@@ -39,6 +43,14 @@ public class User {
 
     public void setTipoCuenta(String tipoCuenta) {
         this.tipoCuenta = tipoCuenta;
+    }
+
+    public String getLinkPhoto() {
+        return linkPhoto;
+    }
+
+    public void setLinkPhoto(String linkPhoto) {
+        this.linkPhoto = linkPhoto;
     }
 
     public String getNombre() {
