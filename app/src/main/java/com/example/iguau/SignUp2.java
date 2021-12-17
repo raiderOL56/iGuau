@@ -59,7 +59,7 @@ public class SignUp2 extends AppCompatActivity {
     private Button signUp2_BTNsignUp;
 
     // Variables Firebase
-    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Usuarios");
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private StorageReference mStorage = storage.getReference();
@@ -148,7 +148,7 @@ public class SignUp2 extends AppCompatActivity {
                                         // Validar si el usuario subió una foto de perfil o no
                                         if (resultUri != null) { // Si subió una foto de perfil
                                             // Crear dirección en donde se va a guardar la foto
-                                            StorageReference filePath = mStorage.child("photoProfile").child(resultUri.getLastPathSegment());
+                                            StorageReference filePath = mStorage.child("photoProfile").child(mAuth.getUid()).child(resultUri.getLastPathSegment());
 
                                             // Subir foto a Firebase Storage
                                             filePath.putFile(resultUri).addOnSuccessListener(taskSnapshot -> filePath.getDownloadUrl().addOnSuccessListener(uri -> {
@@ -176,7 +176,7 @@ public class SignUp2 extends AppCompatActivity {
                                         // Validar si el usuario subió una foto de perfil o no
                                         if (resultUri != null) { // Si subió una foto de perfil
                                             // Crear dirección en donde se va a guardar la foto
-                                            StorageReference filePath = mStorage.child("photoProfile").child(resultUri.getLastPathSegment());
+                                            StorageReference filePath = mStorage.child("photoProfile").child(mAuth.getUid()).child(resultUri.getLastPathSegment());
 
                                             // Subir foto a Firebase Storage
                                             filePath.putFile(resultUri).addOnSuccessListener(taskSnapshot -> filePath.getDownloadUrl().addOnSuccessListener(uri -> {
@@ -203,7 +203,7 @@ public class SignUp2 extends AppCompatActivity {
                                         // Validar si el usuario subió una foto de perfil o no
                                         if (resultUri != null) { // Si subió una foto de perfil
                                             // Crear dirección en donde se va a guardar la foto
-                                            StorageReference filePath = mStorage.child("photoProfile").child(resultUri.getLastPathSegment());
+                                            StorageReference filePath = mStorage.child("photoProfile").child(mAuth.getUid()).child(resultUri.getLastPathSegment());
 
                                             // Subir foto a Firebase Storage
                                             filePath.putFile(resultUri).addOnSuccessListener(taskSnapshot -> filePath.getDownloadUrl().addOnSuccessListener(uri -> {

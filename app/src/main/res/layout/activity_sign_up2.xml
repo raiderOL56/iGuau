@@ -32,13 +32,6 @@
                     android:layout_height="96dp"
                     android:src="@drawable/user"/>
 
-<!--                <ImageView-->
-<!--                    android:id="@+id/signUp2_IVphoto"-->
-<!--                    android:background="@drawable/imagen_redonda"-->
-<!--                    android:layout_width="100dp"-->
-<!--                    android:layout_height="100dp"-->
-<!--                    android:src="@drawable/user"/>-->
-
                 <ImageView
                     android:id="@+id/signUp2_IVaddPhoto"
                     android:layout_width="35dp"

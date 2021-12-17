@@ -5,116 +5,127 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LogIn"
-    android:background="@drawable/fondo">
+    android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingHorizontal="30dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="30dp">
 
             <ImageView
                 android:layout_width="200dp"
-                android:layout_height="170dp"
-                android:src="@drawable/logotipo"
-                android:layout_gravity="center"
-                android:layout_marginVertical="20dp"/>
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/logotipo" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/iniciar_sesion"
-                android:textColor="@color/white"
                 android:textSize="36dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"/>
 
-            <LinearLayout
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/logIn_TXTemail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/correo_electronico"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/email_icon">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/logIn_eTXTemail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text"
-                    android:layout_marginBottom="10dp"
-                    android:padding="10dp"
-                    android:hint="@string/correo_electronico"
-                    android:textColorHint="#80FFFFFF"
-                    android:textColor="@color/white"
                     android:inputType="textEmailAddress"
-                    android:textIsSelectable="true"/>
+                    android:textIsSelectable="true" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/logIn_TXTpassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:hint="@string/contrasena"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                app:endIconMode="password_toggle"
+                app:startIconDrawable="@drawable/password_icon">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/logIn_eTXTpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text"
-                    android:layout_marginBottom="10dp"
-                    android:padding="10dp"
-                    android:hint="@string/contrasena"
-                    android:textColorHint="#80FFFFFF"
-                    android:textColor="@color/white"
                     android:inputType="textPassword"
-                    android:textIsSelectable="true"/>
+                    android:maxLength="20"
+                    android:textIsSelectable="true" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
-                    android:id="@+id/lognIn_BTNlognIn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="@string/iniciar_sesion"/>
-            </LinearLayout>
+            <Button
+                android:id="@+id/logIn_BTNlogIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/iniciar_sesion" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="7"
+        android:orientation="vertical"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="30dp"
+        android:gravity="bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="150dp"
-                android:layout_marginBottom="10dp"
-                android:orientation="vertical">
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="#9E9E9E" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginHorizontal="25dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="@string/o"
+                android:textColor="#9E9E9E"
+                android:textSize="20dp"/>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:layout_gravity="center"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/o"
-                        android:textSize="20dp"
-                        android:textColor="@color/white"
-                        android:layout_marginHorizontal="10dp"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/lognIn_BTNsignUp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/registrate_"/>
-            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="#9E9E9E" />
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+
+        <Button
+            android:id="@+id/logIn_BTNsignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/registrate_" />
+    </LinearLayout>
 </LinearLayout>

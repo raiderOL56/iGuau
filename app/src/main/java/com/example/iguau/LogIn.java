@@ -3,8 +3,13 @@ package com.example.iguau;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,8 +30,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LogIn extends AppCompatActivity {
 
+    private TextInputLayout logIn_TXTemail, logIn_TXTpassword;
     private EditText logIn_eTXTemail, logIn_eTXTpassword;
-    private Button lognIn_BTNlognIn, lognIn_BTNsignUp;
+    private Button logIn_BTNlogIn, logIn_BTNsignUp;
 
     private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -38,92 +45,107 @@ public class LogIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
+        logIn_TXTemail = findViewById(R.id.logIn_TXTemail);
         logIn_eTXTemail = findViewById(R.id.logIn_eTXTemail);
+        logIn_TXTpassword = findViewById(R.id.logIn_TXTpassword);
         logIn_eTXTpassword = findViewById(R.id.logIn_eTXTpassword);
-        lognIn_BTNlognIn = findViewById(R.id.lognIn_BTNlognIn);
-        lognIn_BTNsignUp = findViewById(R.id.lognIn_BTNsignUp);
+        logIn_BTNlogIn = findViewById(R.id.logIn_BTNlogIn);
+        logIn_BTNsignUp = findViewById(R.id.logIn_BTNsignUp);
 
-        mAuth.signOut();
+        // Ocultar errores de eTXT cuando escriba algo el usuario
+        OcultarErroreseTXT();
 
-        lognIn_BTNlognIn.setOnClickListener(new View.OnClickListener() {
+        //mAuth.signOut(); // TODO: Esta línea es sólo para testear
+
+        // EVENTO para iniciar sesión
+        logIn_BTNlogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Validar que los campos estén llenos
-                if (!email.isEmpty() && !password.isEmpty()) { // Ambos campos llenos
+                // Validar que tenga conexión a internet
+                if (Network()) { // Si hay internet
                     email = logIn_eTXTemail.getText().toString().trim();
                     password = logIn_eTXTpassword.getText().toString().trim();
 
-                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            // Validar si se pudo iniciar sesión o no
-                            if (task.isSuccessful()) { // Si se pudo iniciar sesión
-                                // Validar si tipoCuenta es DueñoDeUnaMascota
-                                mDatabase.child("Usuarios").child("DueñoDeUnaMascota").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        if (snapshot.exists()) { // tipoCuenta = DueñoDeUnaMascota
-                                            // TODO: Enviar a HomeDueno.class
-                                        } else { // tipoCuenta != DueñoDeUnaMascota
-                                            // Validar si tipoCuenta es Entrenador
-                                            mDatabase.child("Usuarios").child("Entrenador").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-                                                @Override
-                                                public void onDataChange(@NonNull DataSnapshot snapshot) { // tipoCuenta = Entrenador
-                                                    if (snapshot.exists()) {
-                                                        // TODO: Enviar a HomeEntrenador.class
-                                                    } else { // tipoCuenta != Entrenador
-                                                        // Validar si tipoCuenta es Veterinario
-                                                        mDatabase.child("Usuarios").child("Veterinario").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-                                                            @Override
-                                                            public void onDataChange(@NonNull DataSnapshot snapshot) { // tipoCuenta = Veterinario
-                                                                if (snapshot.exists()) {
-                                                                    // TODO: Enviar a HomeVeterinario.class
+                    // Validar que los campos estén llenos
+                    if (!email.isEmpty() && !password.isEmpty()) { // Ambos campos llenos
+                        // Iniciar sesión
+                        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                // Validar si se pudo iniciar sesión o no
+                                if (task.isSuccessful()) { // Si se pudo iniciar sesión
+                                    // Validar si tipoCuenta es DueñoDeUnaMascota
+                                    mDatabase.child("Usuarios").child("DueñoDeUnaMascota").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            if (snapshot.exists()) { // tipoCuenta == DueñoDeUnaMascota
+                                                // TODO: Enviar a HomeDueno.class
+                                            } else { // tipoCuenta != DueñoDeUnaMascota
+                                                // Validar si tipoCuenta es Entrenador
+                                                mDatabase.child("Usuarios").child("Entrenador").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot snapshot) { // tipoCuenta == Entrenador
+                                                        if (snapshot.exists()) {
+                                                            // TODO: Enviar a HomeEntrenador.class
+                                                        } else { // tipoCuenta != DueñoDeUnaMascota &&  tipoCuenta != Entrenador
+                                                            // Validar si tipoCuenta es Veterinario
+                                                            mDatabase.child("Usuarios").child("Veterinario").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                @Override
+                                                                public void onDataChange(@NonNull DataSnapshot snapshot) { // tipoCuenta == Veterinario
+                                                                    if (snapshot.exists()) {
+                                                                        // TODO: Enviar a HomeVeterinario.class
 
-                                                                    // TODO: 2.- Crear Activity HomeDueno. Esta Activity ya está finalizada.
-                                                                } else { // tipoCuenta != Veterinario
-                                                                    System.out.println("Ese tipo de cuenta no existe.");
+                                                                        // TODO: 2.- Crear Activity HomeDueno. Esta Activity ya está finalizada.
+                                                                    } else { // tipoCuenta != DueñoDeUnaMascota &&  tipoCuenta != Entrenador && tipoCuenta != Veterinario
+                                                                        System.out.println("Ese tipo de cuenta no existe.");
+                                                                    }
                                                                 }
-                                                            }
 
-                                                            @Override
-                                                            public void onCancelled(@NonNull DatabaseError error) {
+                                                                @Override
+                                                                public void onCancelled(@NonNull DatabaseError error) {
 
-                                                            }
-                                                        });
+                                                                }
+                                                            });
+                                                        }
                                                     }
-                                                }
 
-                                                @Override
-                                                public void onCancelled(@NonNull DatabaseError error) {
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError error) {
 
-                                                }
-                                            });
+                                                    }
+                                                });
+                                            }
                                         }
-                                    }
 
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
 
-                                    }
-                                });
-                            } else { // No se pudo iniciar sesión.
-                                Toast.makeText(LogIn.this, "Correo electrónico o contraseña incorrectos.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                } else { // No se pudo iniciar sesión.
+                                    Toast.makeText(LogIn.this, "Correo electrónico o contraseña incorrectos.", Toast.LENGTH_SHORT).show();
+                                }
                             }
+                        });
+                        // FIN Iniciar sesión
+                    } else { // Algún campo vacío
+                        if (email.isEmpty()) { // Email vacío
+                            logIn_TXTemail.setError("Escribe tu correo electrónico");
                         }
-                    });
-                } else { // Algún campo vacío
-                    if (email.isEmpty()) { // Email vacío
-                        logIn_eTXTemail.setError("Completa este campo");
+                        if (password.isEmpty()) { // Password vacío
+                            logIn_TXTpassword.setError("Ingresa tu contraseña");
+                        }
                     }
-                    if (password.isEmpty()) { // Password vacío
-                        logIn_eTXTpassword.setError("Completa este campo");
-                    }
+                    // FIN Validar que los campos estén llenos
+                } else { // No hay internet
+                    Toast.makeText(LogIn.this, "Por favor verifica tu conexión a internet", Toast.LENGTH_SHORT).show();
                 }
-                // FIN Validar que los campos estén llenos
+                // FIN Validar que tenga conexión a internet
             }
         });
+        // FIN EVENTO para iniciar sesión
 
-        lognIn_BTNsignUp.setOnClickListener(new View.OnClickListener() {
+        logIn_BTNsignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LogIn.this, SignUp.class));
@@ -133,6 +155,55 @@ public class LogIn extends AppCompatActivity {
 //****************************** FIN ONCREATE ******************************
 
 //****************************** MÉTODOS ******************************
+    // MÉTODO para verificar conexión a internet
+    public boolean Network(){
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
+        if (networkInfo != null && networkInfo.isConnected()) {
+            // Si hay conexión a Internet en este momento
+            return true;
+        } else {
+            // No hay conexión a Internet en este momento
+            return false;
+        }
+    }
+    // FIN MÉTODO para verificar conexión a internet
+
+    // MÉTODO para ocultar los errores de los eTXT
+    public void OcultarErroreseTXT(){
+        logIn_eTXTemail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                logIn_TXTemail.setErrorEnabled(false);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        logIn_eTXTpassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                logIn_TXTpassword.setErrorEnabled(false);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+    // FIN MÉTODO para ocultar los errores de los eTXT
 //****************************** FIN MÉTODOS ******************************
 }
