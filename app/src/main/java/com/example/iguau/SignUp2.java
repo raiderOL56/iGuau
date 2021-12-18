@@ -170,8 +170,8 @@ public class SignUp2 extends AppCompatActivity {
                                             mDatabase.child("Usuarios").child("DueñoDeUnaMascota").child(mAuth.getUid()).setValue(myUser);
                                         }
                                         Toast.makeText(SignUp2.this, "Cuenta creada con éxito", Toast.LENGTH_SHORT).show();
-                                        // TODO: 2.- Crear HomeDueno
-                                        // TODO: Enviar a activity principal y finalizar esta
+                                        // TODO: 1.- Crear HomeDueno
+                                        // TODO: Enviar a HomeDueno y finalizar esta
                                     } else if (tipoCuenta.equals("Entrenador")) { // Entrenador
                                         // Validar si el usuario subió una foto de perfil o no
                                         if (resultUri != null) { // Si subió una foto de perfil
@@ -198,6 +198,7 @@ public class SignUp2 extends AppCompatActivity {
                                             mDatabase.child("Usuarios").child("Entrenador").child(mAuth.getUid()).setValue(myUser);
                                         }
                                         Toast.makeText(SignUp2.this, "Cuenta creada con éxito", Toast.LENGTH_SHORT).show();
+                                        // TODO: 2.- Crear HomeEntrenador
                                         // TODO: Enviar a activity principal y finalizar esta
                                     } else if (tipoCuenta.equals("Veterinario")) { // Veterinario
                                         // Validar si el usuario subió una foto de perfil o no
@@ -225,6 +226,7 @@ public class SignUp2 extends AppCompatActivity {
                                             mDatabase.child("Usuarios").child("Veterinario").child(mAuth.getUid()).setValue(myUser);
                                         }
                                         Toast.makeText(SignUp2.this, "Cuenta creada con éxito", Toast.LENGTH_SHORT).show();
+                                        // TODO: 3.- Crear HomeVeterinario
                                         // TODO: Enviar a activity principal y finalizar esta
                                     }
                                     // FIN Validar el tipo de cuenta

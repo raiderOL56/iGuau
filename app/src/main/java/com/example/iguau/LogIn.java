@@ -55,8 +55,6 @@ public class LogIn extends AppCompatActivity {
         // Ocultar errores de eTXT cuando escriba algo el usuario
         OcultarErroreseTXT();
 
-        //mAuth.signOut(); // TODO: Esta línea es sólo para testear
-
         // EVENTO para iniciar sesión
         logIn_BTNlogIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,8 +92,6 @@ public class LogIn extends AppCompatActivity {
                                                                 public void onDataChange(@NonNull DataSnapshot snapshot) { // tipoCuenta == Veterinario
                                                                     if (snapshot.exists()) {
                                                                         // TODO: Enviar a HomeVeterinario.class
-
-                                                                        // TODO: 2.- Crear Activity HomeDueno. Esta Activity ya está finalizada.
                                                                     } else { // tipoCuenta != DueñoDeUnaMascota &&  tipoCuenta != Entrenador && tipoCuenta != Veterinario
                                                                         System.out.println("Ese tipo de cuenta no existe.");
                                                                     }
