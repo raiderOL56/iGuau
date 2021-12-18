@@ -29,4 +29,6 @@
     <string name="al_menos_6_caracteres">Al menos 6 caracteres</string>
     <string name="numero_celular">Número celular</string>
     <string name="colonia_municipio_y_estado">(colonia, municipio y estado)</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>

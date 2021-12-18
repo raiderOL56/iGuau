@@ -30,7 +30,7 @@
                     android:id="@+id/signUp2_IVphoto"
                     android:layout_width="96dp"
                     android:layout_height="96dp"
-                    android:src="@drawable/user"/>
+                    android:src="@drawable/user_photo"/>
 
                 <ImageView
                     android:id="@+id/signUp2_IVaddPhoto"

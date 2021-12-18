@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+<!--    TODO: Agregar title a strings.xml-->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_MyProfile"
+            android:icon="@drawable/ic_user"
+            android:title="Mi perfil" />
+        <item
+            android:id="@+id/menu_Coach"
+            android:icon="@drawable/ic_whistle"
+            android:title="Entrenador" />
+        <item
+            android:id="@+id/menu_Veterinarian"
+            android:icon="@drawable/ic_paw"
+            android:title="Veterinario" />
+
+        <item
+            android:id="@+id/menu_Store"
+            android:icon="@drawable/ic_store"
+            android:title="Mercado" />
+
+        <item
+            android:id="@+id/menu_Community"
+            android:icon="@drawable/ic_discusion"
+            android:title="Comunidad" />
+    </group>
+</menu>
