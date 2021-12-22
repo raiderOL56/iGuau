@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.iguau.fragments.fragment_Coach;
 import com.example.iguau.fragments.fragment_Community;
@@ -22,8 +23,11 @@ import com.example.iguau.fragments.fragment_Store;
 import com.example.iguau.fragments.fragment_Veterinarian;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class NavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -45,12 +49,68 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
+    // Variables
+    private String tipoCuenta = "";
+
+//****************************** ONCREATE ******************************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_navigation_drawer);
-        // Variables
-        String tipoCuenta = getIntent().getStringExtra("TipoCuenta");
+        setContentView(R.layout.navigationdrawer_cliente);
+        // Validar qué tipo de cuenta es
+        mDatabase.child("Cliente").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() { // Validar si tipoCuenta == Cliente
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) { // tipoCuenta == Cliente
+                    // Mostrar NavigationDrawer_Cliente
+                } else {
+                    mDatabase.child("Entrenador").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() { // Validar si tipoCuenta == Entrenador
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()) { // tipoCuenta == Entrenador
+                                // Mostrar NavigationDrawer_coach
+                            } else {
+                                mDatabase.child("Veterinario").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() { // Validar si tipoCuenta == Veterinario
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        if (snapshot.exists()) { // tipoCuenta == Veterinario
+                                            // Mostrar NavigationDrawer_veterinarian
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        // Cargar DrawerMenu conforme al tipo de cuenta
+//        if (tipoCuenta.equals("Cliente")) {
+//            setContentView(R.layout.navigationdrawer_cliente);
+//        } else if (tipoCuenta.equals("Entrenador")) {
+//            setContentView(R.layout.navigationdrawer_coach);
+//        } else if(tipoCuenta.equals("Veterinario")) {
+//            setContentView(R.layout.navigationdrawerl_veterinarian);
+//        } else {
+//            System.out.println("TipoCuenta Vacío: " + tipoCuenta);
+//            setContentView(R.layout.navigationdrawer_cliente);
+//        }
 
         toolbar = findViewById(R.id.drawer_Toolbar);
         setSupportActionBar(toolbar);
@@ -79,7 +139,9 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         // Cargar foto de perfil, nombre y email al DrawerHeader
         CargarDatosDrawerHeader();
     }
+//****************************** FIN ONCREATE ******************************
 
+//****************************** MÉTODOS ******************************
     // MÉTODO para cambiar de fragments dependiento del item seleccionado
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -151,4 +213,5 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
 
     }
     // FIN MÉTODO para cargar foto de perfil, nombre y email al DrawerHeader
+//****************************** FIN MÉTODOS ******************************
 }

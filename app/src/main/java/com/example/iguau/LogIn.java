@@ -70,18 +70,16 @@ public class LogIn extends AppCompatActivity {
                         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                // Crear Intent para enviar el tipo de cuenta a NavigationDrawer
-                                Intent tipoCuentaIntent = new Intent(LogIn.this, NavigationDrawer.class);
-
                                 // Validar si se pudo iniciar sesión o no
                                 if (task.isSuccessful()) { // Si se pudo iniciar sesión
+                                    // TODO: Validar qué tipo de cuenta es usando orderby("email).equalsTo(mAuth.getCurrentUser.getEmail)
                                     // Validar si tipoCuenta es DueñoDeUnaMascota
                                     mDatabase.child("Usuarios").child("Cliente").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                                             if (snapshot.exists()) { // tipoCuenta == Cliente
-                                                tipoCuentaIntent.putExtra("TipoCuenta", "Cliente");
-                                                startActivity(tipoCuentaIntent);
+//                                                tipoCuentaIntent.putExtra("TipoCuenta", "Cliente");
+//                                                startActivity(tipoCuentaIntent);
                                                 finish();
                                             } else { // tipoCuenta != Cliente
                                                 // Validar si tipoCuenta es Entrenador
@@ -89,8 +87,8 @@ public class LogIn extends AppCompatActivity {
                                                     @Override
                                                     public void onDataChange(@NonNull DataSnapshot snapshot) { // tipoCuenta == Entrenador
                                                         if (snapshot.exists()) {
-                                                            tipoCuentaIntent.putExtra("TipoCuenta", "Entrenador");
-                                                            startActivity(tipoCuentaIntent);
+//                                                            tipoCuentaIntent.putExtra("TipoCuenta", "Entrenador");
+//                                                            startActivity(tipoCuentaIntent);
                                                             finish();
                                                         } else { // tipoCuenta != Cliente &&  tipoCuenta != Entrenador
                                                             // Validar si tipoCuenta es Veterinario
@@ -98,8 +96,8 @@ public class LogIn extends AppCompatActivity {
                                                                 @Override
                                                                 public void onDataChange(@NonNull DataSnapshot snapshot) { // tipoCuenta == Veterinario
                                                                     if (snapshot.exists()) {
-                                                                        tipoCuentaIntent.putExtra("TipoCuenta", "Veterinario");
-                                                                        startActivity(tipoCuentaIntent);
+//                                                                        tipoCuentaIntent.putExtra("TipoCuenta", "Veterinario");
+//                                                                        startActivity(tipoCuentaIntent);
                                                                         finish();
                                                                     } else { // tipoCuenta != Cliente &&  tipoCuenta != Entrenador && tipoCuenta != Veterinario
                                                                         System.out.println("Ese tipo de cuenta no existe.");

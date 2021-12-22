@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+    <!--    TODO: Agregar title a strings.xml-->
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menu_MyProfile"
@@ -11,21 +12,16 @@
         <item
             android:id="@+id/menu_Coach"
             android:icon="@drawable/ic_whistle"
-            android:title="@string/entrenador" />
+            android:title="Chat" />
         <item
             android:id="@+id/menu_Veterinarian"
             android:icon="@drawable/ic_paw"
-            android:title="@string/veterinario" />
+            android:title="Pacientes" />
 
         <item
-            android:id="@+id/menu_Store"
-            android:icon="@drawable/ic_store"
-            android:title="@string/mercado" />
-
-        <item
-            android:id="@+id/menu_Community"
-            android:icon="@drawable/ic_discusion"
-            android:title="@string/comunidad" />
+            android:id="@+id/menu_Citas"
+            android:icon="@drawable/ic_paw"
+            android:title="Citas" />
 
         <item
             android:id="@+id/menu_LogOut"
