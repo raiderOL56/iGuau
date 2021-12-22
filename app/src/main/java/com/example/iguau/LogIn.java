@@ -70,29 +70,38 @@ public class LogIn extends AppCompatActivity {
                         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                // Crear Intent para enviar el tipo de cuenta a NavigationDrawer
+                                Intent tipoCuentaIntent = new Intent(LogIn.this, NavigationDrawer.class);
+
                                 // Validar si se pudo iniciar sesión o no
                                 if (task.isSuccessful()) { // Si se pudo iniciar sesión
                                     // Validar si tipoCuenta es DueñoDeUnaMascota
-                                    mDatabase.child("Usuarios").child("DueñoDeUnaMascota").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    mDatabase.child("Usuarios").child("Cliente").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            if (snapshot.exists()) { // tipoCuenta == DueñoDeUnaMascota
-                                                // TODO: Enviar a HomeDueno.class
-                                            } else { // tipoCuenta != DueñoDeUnaMascota
+                                            if (snapshot.exists()) { // tipoCuenta == Cliente
+                                                tipoCuentaIntent.putExtra("TipoCuenta", "Cliente");
+                                                startActivity(tipoCuentaIntent);
+                                                finish();
+                                            } else { // tipoCuenta != Cliente
                                                 // Validar si tipoCuenta es Entrenador
                                                 mDatabase.child("Usuarios").child("Entrenador").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                                                     @Override
                                                     public void onDataChange(@NonNull DataSnapshot snapshot) { // tipoCuenta == Entrenador
                                                         if (snapshot.exists()) {
-                                                            // TODO: Enviar a HomeEntrenador.class
-                                                        } else { // tipoCuenta != DueñoDeUnaMascota &&  tipoCuenta != Entrenador
+                                                            tipoCuentaIntent.putExtra("TipoCuenta", "Entrenador");
+                                                            startActivity(tipoCuentaIntent);
+                                                            finish();
+                                                        } else { // tipoCuenta != Cliente &&  tipoCuenta != Entrenador
                                                             // Validar si tipoCuenta es Veterinario
                                                             mDatabase.child("Usuarios").child("Veterinario").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                                                                 @Override
                                                                 public void onDataChange(@NonNull DataSnapshot snapshot) { // tipoCuenta == Veterinario
                                                                     if (snapshot.exists()) {
-                                                                        // TODO: Enviar a HomeVeterinario.class
-                                                                    } else { // tipoCuenta != DueñoDeUnaMascota &&  tipoCuenta != Entrenador && tipoCuenta != Veterinario
+                                                                        tipoCuentaIntent.putExtra("TipoCuenta", "Veterinario");
+                                                                        startActivity(tipoCuentaIntent);
+                                                                        finish();
+                                                                    } else { // tipoCuenta != Cliente &&  tipoCuenta != Entrenador && tipoCuenta != Veterinario
                                                                         System.out.println("Ese tipo de cuenta no existe.");
                                                                     }
                                                                 }
@@ -141,12 +150,14 @@ public class LogIn extends AppCompatActivity {
         });
         // FIN EVENTO para iniciar sesión
 
+        // EVENTO para ir a Activity SignUp
         logIn_BTNsignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LogIn.this, SignUp.class));
             }
         });
+        // FIN EVENTO para ir a Activity SignUp
     }
 //****************************** FIN ONCREATE ******************************
 

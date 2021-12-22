@@ -4,11 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/coach_RV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="COACH "
-        android:layout_marginTop="300dp"
-        android:textSize="30dp"
-        android:gravity="center_horizontal"/>
+        android:layout_marginTop="60dp"/>
 </LinearLayout>

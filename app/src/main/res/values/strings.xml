@@ -31,4 +31,10 @@
     <string name="colonia_municipio_y_estado">(colonia, municipio y estado)</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="mi_perfil">Mi perfil</string>
+    <string name="entrenador">Entrenador</string>
+    <string name="veterinario">Veterinario</string>
+    <string name="mercado">Mercado</string>
+    <string name="comunidad">Comunidad</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
 </resources>

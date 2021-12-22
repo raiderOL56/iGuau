@@ -120,7 +120,7 @@ public class SignUp2 extends AppCompatActivity {
 
                     // Guardar eTXT en variables
                     if (signUp2_SpinnerTipoCuenta.getSelectedItem().toString().equals("Dueño de una mascota")) {
-                        tipoCuenta = "DueñoDeUnaMascota";
+                        tipoCuenta = "Cliente";
                     } else {
                         tipoCuenta = signUp2_SpinnerTipoCuenta.getSelectedItem().toString();
                     }
@@ -143,8 +143,14 @@ public class SignUp2 extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 // Validar si se pudo crear cuenta o no
                                 if (task.isSuccessful()) { // SI se creó la cuenta
+                                    // Crear Intent para enviar el tipo de cuenta a NavigationDrawer
+                                    Intent tipoCuentaIntent = new Intent(SignUp2.this, NavigationDrawer.class);
+
                                     // Validar el tipo de cuenta
-                                    if (tipoCuenta.equals("DueñoDeUnaMascota")) { // Dueño de una mascota
+                                    if (tipoCuenta.equals("Cliente")) { // Cliente
+                                        // Enviar TipoDecuenta a NavigationDrawer
+                                        tipoCuentaIntent.putExtra("TipoCuenta", tipoCuenta);
+
                                         // Validar si el usuario subió una foto de perfil o no
                                         if (resultUri != null) { // Si subió una foto de perfil
                                             // Crear dirección en donde se va a guardar la foto
@@ -157,7 +163,7 @@ public class SignUp2 extends AppCompatActivity {
 
                                                 // Crear cuenta
                                                 User myUser = new User(tipoCuenta, linkPhoto, nombre, apellidoP, apellidoM, edad, genero, phone, domicilio, email);
-                                                mDatabase.child("Usuarios").child("DueñoDeUnaMascota").child(mAuth.getUid()).setValue(myUser);
+                                                mDatabase.child("Usuarios").child("Cliente").child(mAuth.getUid()).setValue(myUser);
                                             })).addOnFailureListener(new OnFailureListener() {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
@@ -167,12 +173,12 @@ public class SignUp2 extends AppCompatActivity {
                                         } else { // No subió foto de perfil
                                             // Crear cuenta
                                             User myUser = new User(tipoCuenta, "", nombre, apellidoP, apellidoM, edad, genero, phone, domicilio, email);
-                                            mDatabase.child("Usuarios").child("DueñoDeUnaMascota").child(mAuth.getUid()).setValue(myUser);
+                                            mDatabase.child("Usuarios").child("Cliente").child(mAuth.getUid()).setValue(myUser);
                                         }
                                         Toast.makeText(SignUp2.this, "Cuenta creada con éxito", Toast.LENGTH_SHORT).show();
-                                        // TODO: 1.- Crear HomeDueno
-                                        // TODO: Enviar a HomeDueno y finalizar esta
                                     } else if (tipoCuenta.equals("Entrenador")) { // Entrenador
+                                        // Enviar TipoDecuenta a NavigationDrawer
+                                        tipoCuentaIntent.putExtra("TipoCuenta", tipoCuenta);
                                         // Validar si el usuario subió una foto de perfil o no
                                         if (resultUri != null) { // Si subió una foto de perfil
                                             // Crear dirección en donde se va a guardar la foto
@@ -198,9 +204,9 @@ public class SignUp2 extends AppCompatActivity {
                                             mDatabase.child("Usuarios").child("Entrenador").child(mAuth.getUid()).setValue(myUser);
                                         }
                                         Toast.makeText(SignUp2.this, "Cuenta creada con éxito", Toast.LENGTH_SHORT).show();
-                                        // TODO: 2.- Crear HomeEntrenador
-                                        // TODO: Enviar a activity principal y finalizar esta
                                     } else if (tipoCuenta.equals("Veterinario")) { // Veterinario
+                                        // Enviar TipoDecuenta a NavigationDrawer
+                                        tipoCuentaIntent.putExtra("TipoCuenta", tipoCuenta);
                                         // Validar si el usuario subió una foto de perfil o no
                                         if (resultUri != null) { // Si subió una foto de perfil
                                             // Crear dirección en donde se va a guardar la foto
@@ -226,10 +232,10 @@ public class SignUp2 extends AppCompatActivity {
                                             mDatabase.child("Usuarios").child("Veterinario").child(mAuth.getUid()).setValue(myUser);
                                         }
                                         Toast.makeText(SignUp2.this, "Cuenta creada con éxito", Toast.LENGTH_SHORT).show();
-                                        // TODO: 3.- Crear HomeVeterinario
-                                        // TODO: Enviar a activity principal y finalizar esta
                                     }
                                     // FIN Validar el tipo de cuenta
+                                    startActivity(tipoCuentaIntent);
+                                    finish();
                                 } else { // NO se creó la cuenta
                                     System.out.println(task.getException());
                                     Toast.makeText(SignUp2.this, "Esa cuenta ya existe", Toast.LENGTH_SHORT).show();

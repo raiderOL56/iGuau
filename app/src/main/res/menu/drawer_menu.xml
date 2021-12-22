@@ -8,24 +8,29 @@
         <item
             android:id="@+id/menu_MyProfile"
             android:icon="@drawable/ic_user"
-            android:title="Mi perfil" />
+            android:title="@string/mi_perfil" />
         <item
             android:id="@+id/menu_Coach"
             android:icon="@drawable/ic_whistle"
-            android:title="Entrenador" />
+            android:title="@string/entrenador" />
         <item
             android:id="@+id/menu_Veterinarian"
             android:icon="@drawable/ic_paw"
-            android:title="Veterinario" />
+            android:title="@string/veterinario" />
 
         <item
             android:id="@+id/menu_Store"
             android:icon="@drawable/ic_store"
-            android:title="Mercado" />
+            android:title="@string/mercado" />
 
         <item
             android:id="@+id/menu_Community"
             android:icon="@drawable/ic_discusion"
-            android:title="Comunidad" />
+            android:title="@string/comunidad" />
+
+        <item
+            android:id="@+id/menu_LogOut"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/cerrar_sesion" />
     </group>
 </menu>

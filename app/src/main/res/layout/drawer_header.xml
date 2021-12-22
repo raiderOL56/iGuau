@@ -13,15 +13,16 @@
     android:orientation="vertical"
     android:gravity="bottom">
 
-<!--    TODO: 1.2.- Obtener fotografía del usuario, nombre y correo electrónico para ponerlos en el drawer_header -->
+<!--    TODO: 1.- Obtener fotografía del usuario, nombre y correo electrónico para ponerlos en el drawer_header -->
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/drawerHeader_imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:src="@drawable/user_photo"/>
 
     <TextView
+        android:id="@+id/drawerHeader_TXTvName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
@@ -29,8 +30,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
+        android:id="@+id/drawerHeader_TXTvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="correoelectronico@pruebas.com"
-        android:id="@+id/textView" />
+        android:text="correoelectronico@pruebas.com" />
 </LinearLayout>

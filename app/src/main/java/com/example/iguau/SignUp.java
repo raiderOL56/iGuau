@@ -16,12 +16,17 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignUp extends AppCompatActivity {
 
     private TextInputLayout signUp_TXTemail, signUp_TXTpassword;
     private EditText signUp_eTXTemail, signUp_eTXTpassword;
     private Button signUp_BTNcontinuar, signUp_BTNlogIn;
+
+    // Firebase
+    private FirebaseAuth mAuth;
 
 //****************************** ONCREATE ******************************
     @Override
@@ -128,7 +133,12 @@ public class SignUp extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        // TODO: Validar si ya se inició sesión o no
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        // Verificar si ya inició sesión o no
+        if(currentUser != null){ // Sesión iniciada
+            startActivity(new Intent(SignUp.this, NavigationDrawer.class));
+        }
     }
 //****************************** FIN ONSTART ******************************
 
