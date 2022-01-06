@@ -50,68 +50,93 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
     private FragmentTransaction fragmentTransaction;
 
     // Variables
-    private String tipoCuenta = "";
+//    private String tipoCuenta = "";
 
 //****************************** ONCREATE ******************************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.navigationdrawer_cliente);
+//        mDatabase.child("Cliente").orderByChild("email").equalTo("cliente1@pruebas.com").limitToFirst(1).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if (snapshot.exists()) {
+//                    System.out.println("Si existe");
+//                    setContentView(R.layout.navigationdrawer_cliente);
+//                } else {
+//                    System.out.println("No existe");
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+
         // Validar qué tipo de cuenta es
-        mDatabase.child("Cliente").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() { // Validar si tipoCuenta == Cliente
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) { // tipoCuenta == Cliente
-                    // Mostrar NavigationDrawer_Cliente
-                } else {
-                    mDatabase.child("Entrenador").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() { // Validar si tipoCuenta == Entrenador
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.exists()) { // tipoCuenta == Entrenador
-                                // Mostrar NavigationDrawer_coach
-                            } else {
-                                mDatabase.child("Veterinario").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() { // Validar si tipoCuenta == Veterinario
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        if (snapshot.exists()) { // tipoCuenta == Veterinario
-                                            // Mostrar NavigationDrawer_veterinarian
-                                        }
-                                    }
+//        mDatabase.child("Cliente").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() { // Validar si tipoCuenta == Cliente
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if (snapshot.exists()) { // tipoCuenta == Cliente
+//                    // Mostrar NavigationDrawer_Cliente
+//                    setContentView(R.layout.navigationdrawer_cliente);
+//                    System.out.println("Es cliente");
+//                } else {
+//                    mDatabase.child("Entrenador").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() { // Validar si tipoCuenta == Entrenador
+//                        @Override
+//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                            if (snapshot.exists()) { // tipoCuenta == Entrenador
+//                                // Mostrar NavigationDrawer_coach
+//                                setContentView(R.layout.navigationdrawer_coach);
+//                                System.out.println("Es entrenador");
+//                            } else {
+//                                mDatabase.child("Veterinario").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() { // Validar si tipoCuenta == Veterinario
+//                                    @Override
+//                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                                        if (snapshot.exists()) { // tipoCuenta == Veterinario
+//                                            // Mostrar NavigationDrawer_veterinarian
+////                                            setContentView(R.layout.navigationdrawer_veterinarian);
+//                                            System.out.println("Es veterinario");
+//                                        }
+//                                    }
+//
+//                                    @Override
+//                                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                                    }
+//                                });
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                        }
+//                    });
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                    }
-                                });
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        // Cargar DrawerMenu conforme al tipo de cuenta
-//        if (tipoCuenta.equals("Cliente")) {
-//            setContentView(R.layout.navigationdrawer_cliente);
-//        } else if (tipoCuenta.equals("Entrenador")) {
-//            setContentView(R.layout.navigationdrawer_coach);
-//        } else if(tipoCuenta.equals("Veterinario")) {
-//            setContentView(R.layout.navigationdrawerl_veterinarian);
-//        } else {
-//            System.out.println("TipoCuenta Vacío: " + tipoCuenta);
-//            setContentView(R.layout.navigationdrawer_cliente);
-//        }
-
+//        // Validar qué tipo de cuenta es
+        String tipoCuenta = "Cliente";
+        if (tipoCuenta.equals("Cliente")) { // Es cliente
+            // Mostrar items del cliente
+            setContentView(R.layout.navigationdrawer_cliente);
+        } else if (tipoCuenta.equals("Entrenador")) { // Es entrenador
+            // Mostrar items del entrenador
+            setContentView(R.layout.navigationdrawer_coach);
+        } else if(tipoCuenta.equals("Veterinario")) { // Es veterinario
+            // Mostrar items del veterinario
+            setContentView(R.layout.navigationdrawer_veterinarian);
+        } else {
+            setContentView(R.layout.navigationdrawer_cliente);
+            System.out.println("Ninguno");
+        }
         toolbar = findViewById(R.id.drawer_Toolbar);
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawerLayout);
